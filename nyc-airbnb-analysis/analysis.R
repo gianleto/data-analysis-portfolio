@@ -1,117 +1,117 @@
 # ==============================================================================
-# PROGETTO ANALISI DATASET AIRBNB NYC
-# Script basato sugli argomenti del corso: Logit, Performance, Ensemble e Text
+# AIRBNB NYC DATASET ANALYSIS PROJECT
+# Script based on the course topics: Logit, Performance, Ensemble and Text
 # ==============================================================================
-
-# Pacchetti per la manipolazione dati e grafici
+ 
+# Packages for data manipulation and plotting
 install.packages("tidyverse")
-
-# Pacchetti per la Regressione Logistica, Campionamento e Performance
+ 
+# Packages for Logistic Regression, Sampling and Performance
 install.packages("caret")
 install.packages("pROC")
-
-# Pacchetti per Alberi Decisionali e Metodi Ensemble (Random Forest)
+ 
+# Packages for Decision Trees and Ensemble Methods (Random Forest)
 install.packages("rpart")
 install.packages("rpart.plot")
 install.packages("randomForest")
-
-# Pacchetti per Naive Bayes e analisi del testo
+ 
+# Packages for Naive Bayes and text analysis
 install.packages("e1071")
 install.packages("tidytext")
-
-# 1. CARICAMENTO LIBRERIE
-library(tidyverse)   # Manipolazione dati e ggplot2
-library(caret)       # Campionamento e matrici di confusione
-library(pROC)        # Curve ROC e AUC
-library(rpart)       # Alberi decisionali
-library(rpart.plot)  # Visualizzazione alberi
-library(randomForest)# Metodi Ensemble
+ 
+# 1. LOADING LIBRARIES
+library(tidyverse)   # Data manipulation and ggplot2
+library(caret)       # Sampling and confusion matrices
+library(pROC)        # ROC curves and AUC
+library(rpart)       # Decision trees
+library(rpart.plot)  # Tree visualisation
+library(randomForest)# Ensemble methods
 library(tidytext)    # Text Mining
-library(e1071)       # Supporto per Naive Bayes
-
-# 2. CARICAMENTO E PULIZIA DATI
-# (Assicurati che il percorso del file sia corretto per il tuo ambiente)
-df <- read_excel("AB_NYC_2019.xlsx")
-
+library(e1071)       # Support for Naive Bayes
+ 
+# 2. DATA LOADING AND CLEANING
+# (Make sure the file path is correct for your environment)
+df <- read_excel("Desktop/AB_NYC_2019.xlsx")
+ 
 df_clean <- df %>%
-  # Forza la colonna a essere numerica (trasforma eventuali testi in numeri)
+  # Force the column to be numeric (converts any text values into numbers)
   mutate(reviews_per_month = as.numeric(reviews_per_month)) %>%
-  # Ora la gestione NA funzionerà perché la colonna è numerica
+  # NA handling now works because the column is numeric
   mutate(reviews_per_month = replace_na(reviews_per_month, 0)) %>%
-  # Feature Engineering: variabile Target binaria
+  # Feature Engineering: binary target variable
   mutate(high_price = as.factor(ifelse(price > median(price, na.rm = TRUE), 1, 0))) %>%
-  # Rendiamo i fattori espliciti
+  # Make the factors explicit
   mutate(neighbourhood_group = as.factor(neighbourhood_group),
          room_type = as.factor(room_type)) %>%
   filter(price > 0 & price < 1000)
-
+ 
 # ------------------------------------------------------------------------------
-# 3. CAMPIONAMENTO STRATIFICATO
-# Perché: Per mantenere la proporzione di 'high_price' tra train e test set
+# 3. STRATIFIED SAMPLING
+# Why: To keep the proportion of 'high_price' the same in the train and test sets
 # ------------------------------------------------------------------------------
-set.seed(123) # Per riproducibilità
+set.seed(123) # For reproducibility
 train_index <- createDataPartition(df_clean$high_price, p = 0.7, list = FALSE)
 train_set <- df_clean[train_index, ]
 test_set  <- df_clean[-train_index, ]
-
+ 
 # ------------------------------------------------------------------------------
-# 4. REGRESSIONE LOGISTICA E MODELLAZIONE PREDITTIVA
+# 4. LOGISTIC REGRESSION AND PREDICTIVE MODELLING
 # ------------------------------------------------------------------------------
-# Stima del modello logit
+# Fit the logit model
 logit_model <- glm(high_price ~ neighbourhood_group + room_type + number_of_reviews + availability_365, 
                    data = train_set, family = binomial)
-
-# Selezione delle variabili Stepwise (AIC)
+ 
+# Stepwise variable selection (AIC)
 logit_step <- step(logit_model, direction = "both")
-
-# Calcolo degli Odds Ratios (Esponenziale dei coefficienti)
-# Perché: Interpretare quanto una variabile aumenta la probabilità di un prezzo alto
+ 
+# Calculation of Odds Ratios (exponential of the coefficients)
+# Why: To interpret how much a variable increases the probability of a high price
 odds_ratios <- exp(coef(logit_step))
 print(odds_ratios)
-
+ 
 # ------------------------------------------------------------------------------
-# 5. VALUTAZIONE DELLE PERFORMANCE
+# 5. PERFORMANCE EVALUATION
 # ------------------------------------------------------------------------------
-# Previsioni sul test set (probabilità)
+# Predictions on the test set (probabilities)
 pred_prob <- predict(logit_step, newdata = test_set, type = "response")
-# Conversione in classi (soglia standard 0.5)
+# Conversion into classes (standard threshold 0.5)
 pred_class <- as.factor(ifelse(pred_prob > 0.5, 1, 0))
-
-# Matrice di Confusione
+ 
+# Confusion Matrix
 conf_matrix <- confusionMatrix(pred_class, test_set$high_price)
 print(conf_matrix)
-
-# Curva ROC e AUC
+ 
+# ROC Curve and AUC
 roc_obj <- roc(test_set$high_price, pred_prob)
-plot(roc_obj, col = "blue", main = paste("Curva ROC - AUC:", round(auc(roc_obj), 3)))
-
-
+plot(roc_obj, col = "blue", main = paste("ROC Curve - AUC:", round(auc(roc_obj), 3)))
+ 
+ 
 # ------------------------------------------------------------------------------
-# 6. METODI ENSEMBLE E ALBERI (Decision Trees & Random Forest)
+# 6. ENSEMBLE METHODS AND TREES (Decision Trees & Random Forest)
 # ------------------------------------------------------------------------------
-# Costruzione Albero Decisionale
+# Build the Decision Tree
 tree_model <- rpart(high_price ~ neighbourhood_group + room_type + availability_365, 
                     data = train_set, method = "class")
-rpart.plot(tree_model, main = "Albero di Classificazione Prezzi Airbnb")
-
-
+rpart.plot(tree_model, main = "Airbnb Price Classification Tree")
+ 
+ 
 # Random Forest (Variable Importance)
-# Nota: utilizziamo un subset per velocità di calcolo se il dataset è grande
+# Note: we use a subset for computation speed if the dataset is large
 rf_model <- randomForest(high_price ~ neighbourhood_group + room_type + availability_365, 
                          data = train_set %>% sample_n(2000), importance = TRUE)
-varImpPlot(rf_model, main = "Importanza delle Variabili (Random Forest)")
-
-
+varImpPlot(rf_model, main = "Variable Importance (Random Forest)")
+ 
+ 
 # ------------------------------------------------------------------------------
-# 7. SENTIMENT ANALYSIS E TEXT MINING SUI TITOLI (Colonna 'name')
+# 7. SENTIMENT ANALYSIS AND TEXT MINING ON LISTING TITLES (Column 'name')
 # ------------------------------------------------------------------------------
-# Tokenizzazione e pulizia parole
+# Tokenisation and word cleaning
 text_analysis <- df_clean %>%
   select(id, neighbourhood_group, name) %>%
   unnest_tokens(word, name) %>%
-  anti_join(stop_words) # Rimozione parole vuote (es. "the", "and")
-
-# Frequenza parole per i Top 2 Quartieri (Analisi Comparativa)
+  anti_join(stop_words) # Remove stop words (e.g. "the", "and")
+ 
+# Word frequency for the Top 2 boroughs (Comparative Analysis)
 text_analysis %>%
   filter(neighbourhood_group %in% c("Manhattan", "Brooklyn")) %>%
   group_by(neighbourhood_group) %>%
@@ -120,13 +120,13 @@ text_analysis %>%
   ggplot(aes(x = n, y = reorder(word, n), fill = neighbourhood_group)) +
   geom_col() +
   facet_wrap(~neighbourhood_group, scales = "free") +
-  labs(title = "Top 10 parole usate negli annunci", x = "Frequenza", y = "Parola")
-
+  labs(title = "Top 10 words used in listings", x = "Frequency", y = "Word")
+ 
 # ------------------------------------------------------------------------------
-# CONCLUSIONI
-# In questo script abbiamo:
-# 1. Pulito i dati e creato una variabile target (high_price).
-# 2. Addestrato una Regressione Logistica valutando Odds Ratios e Stepwise.
-# 3. Misurato le performance con Confusion Matrix e ROC/AUC.
-# 4. Confrontato i risultati con Alberi Decisionali e Random Forest.
-# 5. Analizzato il testo degli annunci per trovare pattern nei nomi.
+# CONCLUSIONS
+# In this script we:
+# 1. Cleaned the data and created a target variable (high_price).
+# 2. Trained a Logistic Regression, evaluating Odds Ratios and Stepwise selection.
+# 3. Measured performance with the Confusion Matrix and ROC/AUC.
+# 4. Compared the results with Decision Trees and Random Forest.
+# 5. Analysed the text of the listings to find patterns in the titles.tern nei nomi.
