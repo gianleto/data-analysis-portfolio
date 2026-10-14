@@ -12,7 +12,7 @@ NYC Airbnb Price Analysis	Statistical Learning	Predicting price categories of NY
 HiveLearn – Adaptive Pathways for Continuous Business Growth	Applied Project Management and Agile Methods	Designing a learning & talent-development platform	Value Proposition Canvas, prototyping, Scrumban
 1. NYC Airbnb Price Analysis
 
-📁 nyc-airbnb-analysis/ · 📄 presentation.pdf · 💻 R script
+📁 nyc-airbnb-analysis/ · 📄 Presentation (PDF) · 💻 R script
 
 Course: Statistical Learning – University of Pavia
 
@@ -44,7 +44,7 @@ The dataset (AB_NYC_2019, public Airbnb NYC listings) is not included. Download 
 
 2. HiveLearn – Adaptive Pathways for Continuous Business Growth
 
-📁 project-management-hivelearn/ · 📄 presentation.pdf
+📁 project-management-hivelearn/ · 📄 Final presentation (PDF)
 
 Course: Applied Project Management and Agile Methods – University of Pavia
 
@@ -70,4 +70,4 @@ Skills demonstrated
 
 Data & analytics: data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R
 
-Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
+Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork prototyping, teamwork
