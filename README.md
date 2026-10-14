@@ -4,6 +4,7 @@ Master's student in International Business and Entrepreneurship (Digital Managem
 
 This repository collects two university projects that show how I work with data and with teams.
 
+🔗 LinkedIn
 
 Projects
 Project	Course	Focus	Tools
@@ -13,7 +14,9 @@ HiveLearn – Adaptive Pathways for Continuous Business Growth	Applied Project M
 
 📁 nyc-airbnb-analysis/ · 📄 Presentation (PDF) · 💻 R script
 
-Course: Statistical Learning – University of Pavia Team: 2 students
+Course: Statistical Learning – University of Pavia
+
+Team: 2 students
 
 Goal
 
@@ -41,9 +44,11 @@ The dataset (AB_NYC_2019, public Airbnb NYC listings) is not included. Download 
 
 2. HiveLearn – Adaptive Pathways for Continuous Business Growth
 
-📁 project-management-hivelearn/ · 📄 Presentation (PDF)
+📁 project-management-hivelearn/ · 📄 Final presentation (PDF)
 
-Course: Applied Project Management and Agile Methods – University of Pavia Team: Group 5, 9 students
+Course: Applied Project Management and Agile Methods – University of Pavia
+
+Team: Group 5, 9 students
 
 Goal
 
@@ -62,5 +67,9 @@ My contribution
 Design and presentation of the Employee Journeys section of the prototype: a dedicated area of the app that shows how colleagues progressed within the company (role changes, skills acquired, key achievements) to inspire and guide new employees. The figures shown in the prototype screens are illustrative mock-up data.
 
 Skills demonstrated
+
+Data & analytics: data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R
+
+Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
 
 Data & analytics: data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
