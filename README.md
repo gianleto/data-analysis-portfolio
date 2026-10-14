@@ -71,5 +71,3 @@ Skills demonstrated
 Data & analytics: data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R
 
 Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
-
-Data & analytics: data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R Business & project management: value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
