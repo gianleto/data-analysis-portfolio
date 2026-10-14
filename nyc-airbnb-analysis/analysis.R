@@ -3,24 +3,29 @@
 # Script based on the course topics: Logit, Performance, Ensemble and Text
 # ==============================================================================
  
-# Packages for data manipulation and plotting
-install.packages("tidyverse")
+# Required packages: run the lines below once to install them, then re-comment
+# (uncomment by removing the leading '#')
+ 
+# Packages for data manipulation, plotting and reading Excel files
+# install.packages("tidyverse")
+# install.packages("readxl")
  
 # Packages for Logistic Regression, Sampling and Performance
-install.packages("caret")
-install.packages("pROC")
+# install.packages("caret")
+# install.packages("pROC")
  
 # Packages for Decision Trees and Ensemble Methods (Random Forest)
-install.packages("rpart")
-install.packages("rpart.plot")
-install.packages("randomForest")
+# install.packages("rpart")
+# install.packages("rpart.plot")
+# install.packages("randomForest")
  
 # Packages for Naive Bayes and text analysis
-install.packages("e1071")
-install.packages("tidytext")
+# install.packages("e1071")
+# install.packages("tidytext")
  
 # 1. LOADING LIBRARIES
 library(tidyverse)   # Data manipulation and ggplot2
+library(readxl)      # Reading Excel files
 library(caret)       # Sampling and confusion matrices
 library(pROC)        # ROC curves and AUC
 library(rpart)       # Decision trees
@@ -30,20 +35,25 @@ library(tidytext)    # Text Mining
 library(e1071)       # Support for Naive Bayes
  
 # 2. DATA LOADING AND CLEANING
-# (Make sure the file path is correct for your environment)
-df <- read_excel("Desktop/AB_NYC_2019.xlsx")
+# The dataset (AB_NYC_2019) is not included in this repository: download it
+# (e.g. from Kaggle), save it as an Excel file named "AB_NYC_2019.xlsx" in the
+# same folder as this script and set that folder as the working directory.
+df <- read_excel("AB_NYC_2019.xlsx")
  
 df_clean <- df %>%
+  # Outlier removal: keep only prices between 1 and 1000 dollars.
+  # This is done BEFORE computing the median so that the target classes
+  # are balanced on the data actually used for modelling.
+  filter(price > 0 & price < 1000) %>%
   # Force the column to be numeric (converts any text values into numbers)
   mutate(reviews_per_month = as.numeric(reviews_per_month)) %>%
   # NA handling now works because the column is numeric
   mutate(reviews_per_month = replace_na(reviews_per_month, 0)) %>%
-  # Feature Engineering: binary target variable
+  # Feature Engineering: binary target variable (median as threshold)
   mutate(high_price = as.factor(ifelse(price > median(price, na.rm = TRUE), 1, 0))) %>%
   # Make the factors explicit
   mutate(neighbourhood_group = as.factor(neighbourhood_group),
-         room_type = as.factor(room_type)) %>%
-  filter(price > 0 & price < 1000)
+         room_type = as.factor(room_type))
  
 # ------------------------------------------------------------------------------
 # 3. STRATIFIED SAMPLING
@@ -129,4 +139,5 @@ text_analysis %>%
 # 2. Trained a Logistic Regression, evaluating Odds Ratios and Stepwise selection.
 # 3. Measured performance with the Confusion Matrix and ROC/AUC.
 # 4. Compared the results with Decision Trees and Random Forest.
+# 5. Analysed the text of the listings to find patterns in the titles.
 # 5. Analysed the text of the listings to find patterns in the titles.tern nei nomi.
