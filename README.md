@@ -1,5 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33434045/README.md)
-
+[README2.md](https://github.com/user-attachments/files/33434153/README2.md)
 # Gianluca Leto – Data Analysis & Business Portfolio
 
 Master's student in International Business and Entrepreneurship (Digital Management) at the University of Pavia, on a double degree in International Strategic Marketing at HEC Liège. I combine analytical skills (Python, SQL, R, Power BI, Excel) with business understanding, and I am open to Data Analyst / Business Analyst opportunities.
@@ -21,7 +20,7 @@ This repository collects two university projects that show how I work with data 
 
 ## 1. NYC Airbnb Price Analysis
 
-📁 [`nyc-airbnb-analysis/`](./nyc-airbnb-analysis) · 📄 [Presentation (PDF)](https://github.com/gianleto/data-analysis-portfolio/raw/main/nyc-airbnb-analysis/presentation.pdf) · 💻 [R script](./nyc-airbnb-analysis/analysis.R)
+📁 [`nyc-airbnb-analysis/`](./nyc-airbnb-analysis) · 📄 [Presentation (PDF)](./nyc-airbnb-analysis/presentation.pdf) · 💻 [R script](./nyc-airbnb-analysis/analysis.R)
 
 **Course:** Statistical Learning – University of Pavia
 
@@ -55,7 +54,7 @@ Required packages: `tidyverse`, `readxl`, `caret`, `pROC`, `rpart`, `rpart.plot`
 
 ## 2. HiveLearn – Adaptive Pathways for Continuous Business Growth
 
-📁 [`project-management-hivelearn/`](./project-management-hivelearn) · 📄 [Final presentation (PDF)](https://github.com/gianleto/data-analysis-portfolio/raw/main/project-management-hivelearn/presentation.pdf)
+📁 [`project-management-hivelearn/`](./project-management-hivelearn) · 📄 [Final presentation (PDF)](./project-management-hivelearn/presentation.pdf)
 
 **Course:** Applied Project Management and Agile Methods – University of Pavia
 
