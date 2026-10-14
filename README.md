@@ -1,4 +1,3 @@
-[README2.md](https://github.com/user-attachments/files/33434153/README2.md)
 # Gianluca Leto – Data Analysis & Business Portfolio
 
 Master's student in International Business and Entrepreneurship (Digital Management) at the University of Pavia, on a double degree in International Strategic Marketing at HEC Liège. I combine analytical skills (Python, SQL, R, Power BI, Excel) with business understanding, and I am open to Data Analyst / Business Analyst opportunities.
