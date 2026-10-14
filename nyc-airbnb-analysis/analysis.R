@@ -31,7 +31,7 @@ library(e1071)       # Supporto per Naive Bayes
 
 # 2. CARICAMENTO E PULIZIA DATI
 # (Assicurati che il percorso del file sia corretto per il tuo ambiente)
-df <- read_excel("Desktop/AB_NYC_2019.xlsx")
+df <- read_excel("AB_NYC_2019.xlsx")
 
 df_clean <- df %>%
   # Forza la colonna a essere numerica (trasforma eventuali testi in numeri)
