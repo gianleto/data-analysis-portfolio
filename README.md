@@ -1,9 +1,10 @@
-[READMEnuovo.md](https://github.com/user-attachments/files/33638125/READMEnuovo.md)
+[README.md](https://github.com/user-attachments/files/33680249/README.md)
+
 # Gianluca Leto – Data Analysis & Business Portfolio
 
 Master's student in International Business and Entrepreneurship (Digital Management) at the University of Pavia, on a double degree in International Strategic Marketing at HEC Liège. I combine analytical skills (Python, SQL, R, Power BI, Excel) with business understanding, and I am open to Data Analyst / Business Analyst opportunities.
 
-This repository collects three university projects that show how I work with data, business strategy and teams.
+This repository collects five university projects that show how I work with data, business strategy and teams.
 
 🔗 [LinkedIn](https://linkedin.com/in/gianluca-leto)
 
@@ -16,6 +17,8 @@ This repository collects three university projects that show how I work with dat
 | [NYC Airbnb Price Analysis](#1-nyc-airbnb-price-analysis) | Statistical Learning | Predicting price categories of NYC listings | R, caret, pROC, rpart, randomForest, tidytext |
 | [HiveLearn – Adaptive Pathways for Continuous Business Growth](#2-hivelearn--adaptive-pathways-for-continuous-business-growth) | Applied Project Management and Agile Methods | Designing a learning & talent-development platform | Value Proposition Canvas, prototyping, Scrumban |
 | [Stellantis Expansion in Indonesia – Joint Venture Business Case](#3-stellantis-expansion-in-indonesia--joint-venture-business-case) | Managing International Growth | Market-entry strategy, valuation and financing of a joint venture | DCF, WACC, Porter's 5 Forces, PESTEL, Balanced Scorecard |
+| [Royal DSM – From Coal Mining to Sustainable Health and Nutrition](#4-royal-dsm--from-coal-mining-to-sustainable-health-and-nutrition) | Transformative Innovation | Case study on how a company reinvented itself over a century, with managerial lessons | BANI, Remain–Reframe–Revolution, organisational unlearning, corporate purpose |
+| [How Can Italy Really Reduce Its Energy Dependence?](#5-how-can-italy-really-reduce-its-energy-dependence) | Energy and Environmental Economics | Multi-criteria comparison of policy options to cut Italy's energy imports | Multi-criteria assessment, energy trilemma, policy analysis |
 
 ---
 
@@ -113,9 +116,74 @@ I was responsible for the **Valuation & M&A** and **Financing** sections. The pr
 
 ---
 
+## 4. Royal DSM – From Coal Mining to Sustainable Health and Nutrition
+
+📁 [`innovation-royal-dsm/`](./innovation-royal-dsm) · 📄 [Final presentation (PDF)](./innovation-royal-dsm/presentation.pdf) · 📄 [Essay (PDF)](./innovation-royal-dsm/essay.pdf)
+
+**Course:** Transformative Innovation – University of Pavia
+
+**Team:** 6 students (group INNOV8)
+
+> Academic case study based on public sources (company documents, managerial literature, academic and industry sources).
+
+### Goal
+Understand how Royal DSM, founded in 1902 as the state-owned *Dutch State Mines*, managed to reinvent itself several times: from coal mining to commodity chemicals, and finally to a purpose-led leader in nutrition, health and biosciences. The project explains why the transformation worked and what managers can learn from it.
+
+### What the project covered
+- **History and triggers of change** – the collapse of the coal paradigm (mines closed by 1974), the "commodity trap" of petrochemicals and the cultural inertia inherited from the state-owned company.
+- **Transformation phases** – from coal to chemicals, then specialty materials, then life sciences through acquisitions (Gist-Brocades, Roche Vitamins, Martek), up to the 2023 merger with Firmenich.
+- **Success factors and barriers** – visionary leadership, open collaboration, long-term investor appeal, versus cultural resistance, timing and short-term financial pressure.
+- **Theoretical analysis** – BANI context, the *Remain – Reframe – Revolution* framework, organisational unlearning, mission vs. purpose, and "fluid and continuous" vs. "deep and bounded" transformation.
+- **Managerial implications** – practical lessons for managers (see below).
+
+### Key takeaways
+- Transformation is both structural (divestments, acquisitions, new capabilities) and cultural (unlearning, new narrative, purpose). Companies that manage only one side tend to fail.
+- Sustainability can be a growth driver, not just a cost.
+
+### My contribution
+I wrote the **Managerial Implications** section (presentation and essay), which turns DSM's story into lessons that managers can apply:
+- **Internal carbon price (€50 per ton)** – a financial mechanism that makes high-emission projects less attractive in internal budgets, so sustainability becomes the economically rational choice.
+- **Innovation ecosystem** – open innovation and capability-driven acquisitions: competitive advantage comes from orchestrating an external network, not from owning every resource.
+- **Institutionalised agility** – horizon scanning, talent mobility and interdisciplinary learning, so that reinvention becomes a permanent capability.
+- **Pitfalls to avoid and general lessons** – do not cling to legacy businesses, do not expect culture to change just because structure does, do not treat M&A as a goal in itself, do not ignore timing.
+
+---
+
+## 5. How Can Italy Really Reduce Its Energy Dependence?
+
+📁 [`energy-dependence-italy/`](./energy-dependence-italy) · 📄 [Final presentation (PDF)](./energy-dependence-italy/presentation.pdf) · 📄 [Research paper (PDF)](./energy-dependence-italy/paper.pdf)
+
+**Course:** Energy and Environmental Economics – University of Pavia
+
+**Team:** 4 students
+
+> Academic research project. It is a qualitative policy analysis based on public data and literature.
+
+### Goal
+Answer the question: *how can Italy reduce its energy dependence while balancing energy security, environmental sustainability and affordability?* The main argument is that the aim is not full self-sufficiency, but lower systemic vulnerability, and that this requires a coordinated portfolio of measures rather than a single technology.
+
+### What the project covered
+- **Theoretical framework** – energy security as a multidimensional concept, energy accounting (primary energy, final energy, electricity) and the energy trilemma.
+- **Italy's starting point** – import dependency of 79.2% in 2022 and 74.6% in 2023, final consumption by fuel, exposure by sector (transport, buildings, industry, services) and the electricity system.
+- **Methodology** – a qualitative multi-criteria assessment of five options (energy efficiency, electrification, renewable electricity, grid flexibility, biomethane and hydrogen) against eight criteria, ranked High / Medium / Low.
+- **Comparison and policy implications** – ranking of the options, short vs. long-term contribution, trade-offs and a recommended policy package.
+
+### Key results
+- Energy efficiency comes first in the ranking, followed by renewable electricity, electrification, grid flexibility and, selectively, biomethane and hydrogen.
+- Sequencing matters: reduce demand first, then electrify efficient uses, then supply them with domestic renewables, while building flexibility in parallel.
+
+### My contribution
+I wrote the **Energy Efficiency** and **Renewable Electricity** sections (paper and presentation).
+- **Energy efficiency:** the economic rationale (efficiency as an investment decision and the "energy efficiency gap"), the market failures that hold it back (information problems, split incentives, capital constraints, behavioural biases, externalities), the "failure-matching" principle for policy instruments, and limits such as the rebound effect, timing and distributional effects. Applied to Italy, with priority on buildings and industry.
+- **Renewable electricity (solar and wind):** how renewables reduce imported fuels and gas-price exposure (merit-order effect, 51.83% of national electricity production in 2024 vs. 42% from natural gas), their system costs (intermittency, grid congestion, curtailment, permitting, market design, social acceptance) and why they are "necessary but not sufficient".
+
+---
+
 ## Skills demonstrated
 **Data & analytics:** data cleaning, classification, logistic regression, model evaluation (ROC/AUC, Kappa), Random Forest, text mining, R
 
 **Business & project management:** value proposition design, user stories, agile/Scrumban, stakeholder analysis, prototyping, teamwork
 
 **Strategy & finance:** market-entry strategy, DCF valuation and WACC, joint-venture structuring, financing (equity vs debt, DSCR), Balanced Scorecard, Porter's 5 Forces, PESTEL, risk management
+
+**Innovation, sustainability & policy analysis:** case-study research, change management, open innovation, corporate purpose, internal carbon pricing, energy economics, multi-criteria assessment, policy recommendations
